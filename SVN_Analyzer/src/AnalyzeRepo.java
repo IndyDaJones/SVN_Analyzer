@@ -68,9 +68,9 @@ public class AnalyzeRepo extends Analyze{
 	private void CheckoutRepository(){
 			DAVRepositoryFactory.setup( );
 
-	        String url = "https://svn.jag.ch/svn/CSL.M99.ATKP.Main/trunk";
-	        String name = "j.nyffeler";
-	        String password = "Solo235751";
+	        String url = "";
+	        String name = "";
+	        String password = "";
 	        long startRevision = 0;
 	        long endRevision = -1; //HEAD (the latest) revision
 
