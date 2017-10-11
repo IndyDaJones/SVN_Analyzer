@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/antlr-runtime-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jna-3.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jsch.agentproxy.connector-factory-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jsch.agentproxy.core-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jsch.agentproxy.pageant-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jsch.agentproxy.sshagent-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jsch.agentproxy.svnkit-trilead-ssh2-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jsch.agentproxy.usocket-jna-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/jsch.agentproxy.usocket-nc-0.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/platform-3.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/sequence-library-1.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/sqljet-1.1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/svnkit-1.7.14.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/svnkit-cli-1.7.14.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/svnkit-javahl16-1.7.14.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/svnkit-1.7.14/lib/trilead-ssh2-1.0.0-build217.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/hsqldb-2.2.8.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/jackcess-2.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/ucanaccess-4.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/poi-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/poi-examples-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/poi-excelant-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/poi-ooxml-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/poi-ooxml-schemas-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/poi-scratchpad-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/ooxml-lib/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/Libs/poi-3.17/ooxml-lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
