@@ -235,7 +235,7 @@ public class AnalyzeRepo extends Analyze{
 	    SVNURL url = null;
 	    try {
 	        url = SVNURL
-	                .parseURIEncoded("https://svn.jag.ch/svn/CSL.M99.ATKP.Main/trunk");
+	                .parseURIEncoded("");
 	    } catch (SVNException e) {
 	        // TODO Auto-generated catch block
 	        e.printStackTrace();
