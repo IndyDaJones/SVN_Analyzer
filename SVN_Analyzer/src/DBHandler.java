@@ -77,10 +77,6 @@ public class DBHandler {
 		Statement s = conn.createStatement();
 	    log.log(Level.INFO,"Statement established");
 	    // Fetch table
-	    if (seqnum.equals("1219") && sequence.equals("FH01_OpWertEingabe"))
-	    {
-	    	System.out.println("FUCK");
-	    }
 	    String query = "SELECT ID FROM "+ getTargetTableName()+ " WHERE lower(system) = '"+system.toLowerCase()+ "' AND SequenceNumber = "+seqnum+" AND lower(SequenceName) = '"+sequence.toLowerCase()+"'";
 	    log.log(Level.INFO,"Query to execute: " + query);
 	    s.execute(query);

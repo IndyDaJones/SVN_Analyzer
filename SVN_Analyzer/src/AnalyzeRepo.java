@@ -36,6 +36,7 @@ public class AnalyzeRepo extends Analyze{
 	String revision;
 	String localRep;
 	String revisionRegex;
+	String subversionUpdate;
 	String rev = "";
 	public AnalyzeRepo(){}
 	
@@ -47,12 +48,18 @@ public class AnalyzeRepo extends Analyze{
 		revision = props.getFileProperty("Revision");
 		localRep = props.getFileProperty("FileLocation");
 		revisionRegex = props.getFileProperty("RevisionRegex");
+		subversionUpdate = props.getFileProperty("SvnUpdateToLatestVersion");
+		
 		
 		//CheckoutExcel();
 		checkLogFromRepositoryCMD();
 		//CheckoutRepository();
 		//svnLogTest();
 	}
+	/**
+	 * This method is used to read data form an excel file used as appendix to 
+	 * the DS
+	 */
 	private void CheckoutExcel() {
 		file = new FileHandler();
 		try {
@@ -64,7 +71,10 @@ public class AnalyzeRepo extends Analyze{
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * This method uses the checkout directly from the repository. If NO Windows credentials are necessay
+	 * one can use this method. 
+	 */
 	private void CheckoutRepository(){
 			DAVRepositoryFactory.setup( );
 
@@ -127,7 +137,7 @@ public class AnalyzeRepo extends Analyze{
 	private void checkLogFromRepositoryCMD(){
 		String command = "cd "+localRep+" && svn log -v -r "+revision+":BASE";
 		try {
-			//updateRevision();
+			if (subversionUpdate.equals("YES")) updateRevision();
 			analyzeData(executeCommand());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
