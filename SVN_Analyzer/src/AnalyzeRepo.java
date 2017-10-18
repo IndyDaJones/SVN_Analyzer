@@ -56,11 +56,11 @@ public class AnalyzeRepo extends Analyze{
 	private void CheckoutExcel() {
 		file = new FileHandler();
 		try {
-			System.out.println("Load Excel method");
 			Hashtable test = new Hashtable<>();
 			test = file.readXLSXFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			 log.log(Level.SEVERE,"CheckoutExcel failed: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -127,7 +127,7 @@ public class AnalyzeRepo extends Analyze{
 	private void checkLogFromRepositoryCMD(){
 		String command = "cd "+localRep+" && svn log -v -r "+revision+":BASE";
 		try {
-			updateRevision();
+			//updateRevision();
 			analyzeData(executeCommand());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -194,6 +194,12 @@ public class AnalyzeRepo extends Analyze{
 				// TODO Auto-generated catch block
 				log.log(Level.SEVERE,"SVN processing stopped due to error: " + e.getMessage());
 			}
+			int i = 1;
+			Set<Integer> keys = result.keySet();
+    		for(Integer key: keys){
+    			log.log(Level.INFO,"Nummer: "+ i + "	Key: "+ key + "		Value: "+result.get(key));
+    			i++;
+    		}
 	        return result;
 	    }
 	  /**

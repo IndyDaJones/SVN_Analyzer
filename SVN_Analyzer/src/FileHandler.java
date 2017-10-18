@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -100,11 +101,12 @@ public class FileHandler {
         XSSFWorkbook  wb = new XSSFWorkbook(ExcelFileToRead);
         XSSFWorkbook test = new XSSFWorkbook();
         for (int i = 0; i < Integer.parseInt(getNumberofWorksheets()); i++) {
-	        // Load worksheet
+	        // Load worksheet!
         	XSSFSheet sheet = wb.getSheetAt(i);
 	        XSSFRow row; 
 	        XSSFCell cell;
 	        Iterator rows = sheet.rowIterator();
+	        int x = 1;
 	        while (rows.hasNext())
 	        {
 	            row=(XSSFRow) rows.next();
@@ -117,41 +119,55 @@ public class FileHandler {
 	                if (cell.getCellType() == XSSFCell.CELL_TYPE_STRING && ! cell.getStringCellValue().equals(""))
 	                {
 	                    String value = cell.getStringCellValue();
-	                    //if (!value.startsWith("C:\\Users\\") && !value.startsWith("X") && !value.startsWith("[")&& !value.startsWith("1)")&& !value.startsWith("2)")&& !value.startsWith("3)")&& !value.startsWith("4)")&& !value.startsWith("5)")) {
-	                    if (!value.startsWith("C:\\Users\\") && !value.startsWith("X") && !value.startsWith("[")) {
-	                    	rowResult = rowResult+value+"|";
+   	                    if (!value.startsWith("C:\\Users\\") && !value.startsWith("X") && !value.startsWith("[") && !value.contains(" ")&& !value.contains(":")&& !value.contains("%") && !value.contains(")")&& !value.contains(".") && !value.contains("Kategorie")&& !value.contains("Bemerkung") && !value.contains("Content") && !value.contains("System")&& !value.contains("Kontrolle") ) {
+	   	                    	rowResult = rowResult+value+"|";
 	                    }
 	                }
 	                else if(cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC && Double.toString(cell.getNumericCellValue()) != "")
 	                {
-	                	rowResult = rowResult+Double.toString(cell.getNumericCellValue())+"|";
+	                	Double value = cell.getNumericCellValue();
+	                	rowResult = rowResult+value.intValue()+"|";
 	                }
 	                else {
 	                	//do nothing 
 	                }
 	            }
-	            while (rowResult.indexOf("|") != -1)
+	            if (!rowResult.isEmpty()) {
+	            	System.out.println("Output : "+x+	" 			"	+rowResult);
+	            	x++;
+	            }
+	            while (rowResult.indexOf("|") != -1 && !rowResult.isEmpty())
                 {
+	            	String Sequence = "";
+	            	String SeqNum = "";
+	            	String SeqName ="";
 	            	log.log(Level.INFO,rowResult);
-                	String Sequence =rowResult.substring(0, rowResult.indexOf("|")); 
-                	rowResult =rowResult.substring(rowResult.indexOf("|")+1,rowResult.length());
-                	if(Sequence.matches("S0[1-9]*_")) {
-                		log.log(Level.INFO,"Sequence "+Sequence);
-                	} 
-                	log.log(Level.INFO,rowResult);
-                	if(rowResult.indexOf("|") != -1) {
-                		String SeqNum =rowResult.substring(0, rowResult.indexOf("|"));
-                		if((SeqNum.matches("[0-9][0-9][0-9][0-9]")))
-                		rowResult =rowResult.substring(rowResult.indexOf("|")+1,rowResult.length());
-                		log.log(Level.INFO,"SeqNum "+SeqNum);
+	            	if (rowResult.indexOf("|") != -1 && rowResult.indexOf("|")+1 != rowResult.length()){
+	            		Sequence = rowResult.substring(0, rowResult.indexOf("|")); 
+	                	rowResult = rowResult.substring(rowResult.indexOf("|")+1,rowResult.length());
+	                	log.log(Level.INFO,rowResult);	
+	            	}
+	            	if(rowResult.indexOf("|") != -1 && rowResult.indexOf("|")+1 != rowResult.length()) {
+                	SeqNum =rowResult.substring(0, rowResult.indexOf("|"));
+                	if((SeqNum.matches("\\b[0-9][0-9]{1,3}\\b"))) {
+                			rowResult = rowResult.substring(rowResult.indexOf("|")+1,rowResult.length());
+                			log.log(Level.INFO,"SeqNum "+SeqNum);
+                		}
                 	}
-                	if(rowResult.indexOf("|") != -1) {
-                		String SeqName =rowResult.substring(0, rowResult.indexOf("|"));
+                	if(rowResult.indexOf("|") != -1 ) {
+                		SeqName = rowResult.substring(0, rowResult.indexOf("|"));
                 		rowResult =rowResult.substring(rowResult.indexOf("|")+1,rowResult.length());
                 		log.log(Level.INFO,"SeqName "+ SeqName);
                 	}
+                	result.put(Sequence+SeqNum+SeqName, "1");
                 }
 	        }
+	        int y = 1;
+	        Set<String> keys = result.keySet();
+    		for(String key: keys){
+    			System.out.println("Nummer: "+ y + "	Key: "+ key + "						Value: "+result.get(key));
+    			y++;
+    		}
         }
         return result;
     }

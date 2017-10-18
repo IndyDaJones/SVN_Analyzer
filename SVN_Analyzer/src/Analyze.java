@@ -23,7 +23,7 @@ public abstract class Analyze {
 				String path = paths.get(key).toString();
 				String format = path.substring(path.indexOf(".")+1, path.length());
 				path = path.substring(0, path.indexOf("."));
-				if (format.equals("JSeq") || format.equals("JInc")) {
+				if (format.toLowerCase().equals("jseq") || format.toLowerCase().equals("jinc")) {
 					while (path.indexOf("/") != -1) {
 			    		String folder = path.substring(0, path.indexOf("/"));
 			    		
@@ -35,7 +35,7 @@ public abstract class Analyze {
 			    		path = path.substring(path.indexOf("/")+1, path.length());
 			    		log.log(Level.INFO,"FilePath is " + path);
 					}
-					log.log(Level.INFO,"Let's go on with: " + path);
+					log.log(Level.INFO,"Path: " + path);
 					String system = "";
 					String sequence ="";
 					String seqNum = "";
@@ -58,14 +58,12 @@ public abstract class Analyze {
 							if (!db.checkSequence(system, seqNum, sequence)) {
 								log.log(Level.INFO,"Sequence not defined: " + paths.get(key).toString());
 								notTracked.put(notTracked.size()+1, paths.get(key).toString());
-								//db.trackSequence(paths.get(key).toString());
 							}
 						}
 					}else {
 						// Includes
 						if (!db.checkSequence(sequence)) {
 							log.log(Level.INFO,"Include not defined: " + paths.get(key).toString());
-							//db.trackSequence(paths.getString(2));
 							notTracked.put(notTracked.size()+1, paths.get(key).toString());
 						}
 					}
