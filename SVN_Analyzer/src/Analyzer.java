@@ -45,8 +45,10 @@ public class Analyzer {
 				log.log(Level.INFO,"create Calculator");
 				if (datasource.equals("DB")) {
 					analyze = new AnalyzeDB();
-				}else if (datasource.equals("SVN")) {
+				}else if (datasource.equals("ATK+")) {
 					analyze = new AnalyzeRepo();
+				}else if (datasource.equals("ATK32")) {
+					analyze = new AnalyzeATK32();
 				}
 				log.log(Level.INFO,"Calculator created");
 				log.log(Level.INFO,"call Calculator.start()");

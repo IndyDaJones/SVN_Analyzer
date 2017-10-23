@@ -32,6 +32,13 @@ public class FileHandler {
 		}*/
 	}
 	/**
+	 * Returns the selection of Selection parameters
+	 */
+	public String getFileLocation() {
+		props = new FileHandlerProperty();
+		return props.getFileProperty("FileLocation");
+	}
+	/**
 	 * Returns the the location of the sources folder
 	 */
 	public String getSourceFolderLocation() {

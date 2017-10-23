@@ -148,4 +148,26 @@ public class DBHandler {
 	    	return false;
 	    }
 	}
+	/**
+	 * Returns the defined pathes to the source files
+	 */
+	public ResultSet GetPathsOfFiles() {
+		//Statement s;
+		int i = 0;
+		ResultSet rs = null;
+		try {
+			Statement s = conn.createStatement();
+		    log.log(Level.INFO,"Statement established");
+		    // Fetch table
+		    String selection = "SELECT ID, System, SequenceNumber, SequenceName FROM "+ getSourceTableName() +" ORDER BY System, SequenceName  ASC";
+		    log.log(Level.INFO,"Query to execute: " + selection);
+		    s.execute(selection);
+		    rs = s.getResultSet();
+		    s.close();
+		    } catch (SQLException e) {
+		    	conn.closeConnection();
+		    	log.log(Level.SEVERE,"Exception catched: " +e.getLocalizedMessage());
+		    }
+		return rs;
+	}
 }

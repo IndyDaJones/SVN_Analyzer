@@ -54,7 +54,6 @@ public class AnalyzeRepo extends Analyze{
 		//CheckoutExcel();
 		checkLogFromRepositoryCMD();
 		//CheckoutRepository();
-		//svnLogTest();
 	}
 	/**
 	 * This method is used to read data form an excel file used as appendix to 
