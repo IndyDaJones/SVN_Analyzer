@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  *
  */
 public class AnalyzeATK32 extends Analyze{
-	private static final Logger log = Logger.getLogger( Analyzer.class.getName() );
+	private static final Logger log = Logger.getLogger( SequenceSynchronizer.class.getName() );
 	String revision;
 	String localRep;
 	String revisionRegex;
@@ -42,7 +42,7 @@ public class AnalyzeATK32 extends Analyze{
 		log.log(Level.INFO,"Get all FilePaths");
 		ResultSet pathes = db.GetPathsOfFiles();
 		try {
-			Hashtable files = null;
+			Hashtable<String, String> files = null;
 			String folder = "";
 			while((pathes != null) && (pathes.next())) {
 				if(pathes.getString(1) != null && pathes.getString(2) != null && pathes.getString(3) != null) { // ID // FOLDER
@@ -76,7 +76,7 @@ public class AnalyzeATK32 extends Analyze{
 		 * @param SequenceNumber
 		 * @return
 		 */
-		private Hashtable getLatestSequencesFromFolder(String Folder) {
+		private Hashtable<String, String> getLatestSequencesFromFolder(String Folder) {
 			String path = file.getFileLocation() +"/"+ Folder+"/";
 			File rep = new File(path);
 			File[] list = rep.listFiles();
@@ -88,7 +88,6 @@ public class AnalyzeATK32 extends Analyze{
 			}
 			log.log(Level.INFO,"Number of files found:  " + filenames.size());
 			Collections.sort(filenames.subList(0, filenames.size()));
-			String version = filenames.get(filenames.size()-1);
 			
 			Hashtable<String, String> result = new Hashtable<String, String>();
 			for ( int i = 0; i < filenames.size(); i++) {

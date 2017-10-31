@@ -4,8 +4,8 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Analyzer {
-	private static final Logger log = Logger.getLogger( Analyzer.class.getName() );
+public class SequenceSynchronizer {
+	private static final Logger log = Logger.getLogger( SequenceSynchronizer.class.getName() );
 	static String logFile;
 	static String datasource;
 	static Analyze analyze;

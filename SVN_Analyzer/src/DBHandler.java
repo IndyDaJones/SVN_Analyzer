@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DBHandler {
-	private static final Logger log = Logger.getLogger( Analyzer.class.getName() );
+	private static final Logger log = Logger.getLogger( SequenceSynchronizer.class.getName() );
 	DBConnection conn;
 	DBHandlerProperty props;
 	/**

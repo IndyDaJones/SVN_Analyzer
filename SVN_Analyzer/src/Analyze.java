@@ -4,7 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public abstract class Analyze {
-	private static final Logger log = Logger.getLogger( Analyzer.class.getName() );
+	private static final Logger log = Logger.getLogger( SequenceSynchronizer.class.getName() );
 	FileHandler file;
 	DBHandler db;
 	/**

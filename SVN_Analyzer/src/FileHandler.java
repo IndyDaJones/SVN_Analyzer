@@ -16,7 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class FileHandler {
-	private static final Logger log = Logger.getLogger( Analyzer.class.getName() );
+	private static final Logger log = Logger.getLogger( SequenceSynchronizer.class.getName() );
 	FileHandlerProperty props;
 	Hashtable exceldata;
 	/**

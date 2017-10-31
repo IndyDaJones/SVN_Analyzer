@@ -32,7 +32,7 @@ import org.tmatesoft.svn.core.wc2.SvnTarget;
  *
  */
 public class AnalyzeRepo extends Analyze{
-	private static final Logger log = Logger.getLogger( Analyzer.class.getName() );
+	private static final Logger log = Logger.getLogger( SequenceSynchronizer.class.getName() );
 	String revision;
 	String localRep;
 	String revisionRegex;

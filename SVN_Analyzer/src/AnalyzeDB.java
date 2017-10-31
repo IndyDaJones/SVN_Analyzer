@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  *
  */
 public class AnalyzeDB extends Analyze{
-	private static final Logger log = Logger.getLogger( Analyzer.class.getName() );
+	private static final Logger log = Logger.getLogger( SequenceSynchronizer.class.getName() );
 	DBHandler db;
 	FileHandler file;
 	public AnalyzeDB(){
